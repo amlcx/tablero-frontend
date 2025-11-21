@@ -14,6 +14,7 @@ COPY --from=builder /app/build build/
 COPY --from=builder /app/node_modules node_modules/
 COPY package.json .
 COPY drizzle.config.ts .
+COPY migrations migrations/
 EXPOSE 3001
 ENV NODE_ENV=production
 ENV PORT=3001
