@@ -4,6 +4,8 @@ COPY package*.json bun.lock* ./
 ARG BETTER_AUTH_SECRET
 ARG BETTER_AUTH_URL
 ARG DATABASE_URL
+ARG UPLOAD_DIR
+ARG BACKEND_URL
 RUN bun install --frozen-lockfile
 COPY . .
 RUN bun --bun run build
@@ -19,5 +21,5 @@ EXPOSE 3001
 ENV NODE_ENV=production
 ENV PORT=3001
 ENV ORIGIN=${ORIGIN}
-VOLUME [ "/data" ]
+VOLUME [ "/app/uploads" ]
 CMD ["bun", "start"]
