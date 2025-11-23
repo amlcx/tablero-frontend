@@ -9,6 +9,7 @@ const transport = createConnectTransport({
 })
 
 export function createApiClients() {
+	console.debug(`Creating client with transport: HTTP 2 and baseUrl: ${BACKEND_URL}`)
 	return {
 		greetApi: createClient(GreetService, transport)
 	}
